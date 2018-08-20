@@ -2,9 +2,9 @@ import React from 'react'
 import VideoListItem from '../components/video-list-item';
 
 
-const VideoList = ({moviesList}) =>{
+const VideoList = (props) =>{
    // console.log("", moviesList);
-   
+   const {moviesList} = props;
     if(moviesList.length >= 5)
     {
         return (
@@ -12,7 +12,7 @@ const VideoList = ({moviesList}) =>{
             <ul>
                 {
                     moviesList.map(movie => {
-                        return <VideoListItem key={movie.id} movie={movie} />
+                        return <VideoListItem key={movie.id} movie={movie} callback={receiveCallBack} />
                     })
                 }
     
@@ -23,6 +23,11 @@ const VideoList = ({moviesList}) =>{
     else{
         return <div></div>;
     }
+    
+    function receiveCallBack(movie){
+        console.log("", movie);
+    }
+
     
 }
 

@@ -1,17 +1,27 @@
 import React from 'react'
 
-const VideoListItem = ({movie}) =>{
+const VideoListItem = (props) =>{
 
+    const {movie} = props;
     const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500/";
     return(
-        <div>
-            <li> 
-                <img height="100px" width="100px" src={`${IMAGE_BASE_URL}${movie.poster_path}`} />
-                <h3>{movie.title}</h3> 
+            <li className="list-group-item" onClick={handleOnClick}> 
+            <div className="media">
+                <div className="media-left">
+                    <img className="media-object img-rounded" height="100px" width="100px" src={`${IMAGE_BASE_URL}${movie.poster_path}`} />
+                </div>
+                <div className="media-body">
+                    <h5 className="title_list_item">{movie.title}</h5> 
+                </div>
+            
+            </div>
             </li>
-        </div>
     )
      
+    function handleOnClick()
+    {
+        props.callback(movie);
+    }
 }
 
 

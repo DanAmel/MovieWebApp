@@ -27,10 +27,21 @@ class App extends Component{
 
         return ( 
             <div>
-                <SearchBar /> 
-                <Video youtubeKey={this.state.currentMovie.key} />
-                <VideoList moviesList={this.state.moviesList} />
-                <VideoDetail title={this.state.currentMovie.title} overview={this.state.currentMovie.overview} />
+                <div className="search_bar">
+                    <SearchBar /> 
+                </div>
+
+                <div className="row">
+                    <div className="col-md-8">
+                        <Video youtubeKey={this.state.currentMovie.key} />
+                        <VideoDetail title={this.state.currentMovie.title} overview={this.state.currentMovie.overview} />
+                    </div>
+                    <div className="col-md-4">
+                        <VideoList moviesList={this.state.moviesList} />
+                    </div>
+                </div>
+                
+                
             </div>
         )
     };
